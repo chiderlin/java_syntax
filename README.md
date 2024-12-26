@@ -8,7 +8,7 @@ java `<file name>`
 
 `java Main`
 
-入口點一樣是 main
+entry point main
 `public static void main(String[] args`
 
 ### Encapsulation(Main.java)
