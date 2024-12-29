@@ -58,6 +58,13 @@ use those methods to perform different tasks. This allows us to perform a single
 
 ### Abstract Classes
 
+The `abstract` keyword is a non-access modifier, used for classed and methods:
+
+- Abstract class: is a restricted class that cannot be used to create objects
+  (to access it, it must be inherited from another class).
+- Abstract method: can only be used in an abstract class, and it does not have a body.
+  The body is provided by the subclass(inherited from).
+
 ### Interface
 
 ### `String[]` vs `ArrayList` vs `List<String>` vs `LinkedList`
@@ -73,6 +80,15 @@ store key/value pairs
 
 ### Threads
 
+Allows a program to operate more efficiently by doing multiple things at the same time.
+Threads can be used to perform complicated tasks in the background w/o interrupting the main program.
+
 ### Lambda
 
-### Files
+_parameter_ -> _expression_
+
+To use more than one parameter
+(_parameter1_, _parameter2_) -> _expression_
+(_parameter1_, _parameter2_) -> { code block }
+
+### Files(FileMain.java)
