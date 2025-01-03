@@ -52,9 +52,11 @@ Use `package` keyword
 
 ### Polymorphism(AnimalMain.java)
 
-use those methods to perform different tasks. This allows us to perform a single action in different ways.
+Use those methods to perform different tasks. This allows us to perform a single action in different ways.
 
-### Inner Classes
+### Inner Classes(InnerClassMain.java)
+
+A class within a class. The purpose of nested classes is to group classes that belong together, which making code more readable and maintanable.
 
 ### Abstract Classes
 
@@ -65,7 +67,11 @@ The `abstract` keyword is a non-access modifier, used for classed and methods:
 - Abstract method: can only be used in an abstract class, and it does not have a body.
   The body is provided by the subclass(inherited from).
 
-### Interface
+### Interface(InterfaceMain.java)
+
+An `interface` is a completely "abstract class" that is used to group related methods with empty bodies.
+
+To access the interface methods, the interface must be "implemented" by another class with the `implements` keywords (instead of extends).
 
 ### `String[]` vs `ArrayList` vs `List<String>` vs `LinkedList`
 
