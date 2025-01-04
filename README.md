@@ -75,6 +75,69 @@ To access the interface methods, the interface must be "implemented" by another 
 
 ### `String[]` vs `ArrayList` vs `List<String>` vs `LinkedList`
 
+`String[]`: Fixed size. (Part of Java core syntax.)
+
+```Java
+String[] array = new String[3]; //fixed
+array[0] = "Apple";
+array[1] = "Banana";
+array[2] = "Cherry";
+// couldn't add new element.
+
+// anthter way
+String[] array = {"Apple", "Banana", "Cherry"};
+```
+
+---
+
+**Advance type of Array.**
+
+`List<String>`: (Part of `java.uti` package.) An **interface**.
+
+An interface, couldn't use it directly. must use `ArrayList` or `LinkedList` to implement the class.
+
+```
+List (interface)
+├── ArrayList (Implementation class)
+└── LinkedList (Implementation class)
+
+```
+
+```Java
+List<String> list = new List<>(); // error!
+
+// correct way to use
+List<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("banana");
+list.add("Cherry");
+Collections.sort(list); // sorting
+System.out.println(list.get(0)); // access via index
+
+List<String> list2 = LinkedList<>();
+
+
+// flexibility to switch
+List<String> list = new ArrayList<>(); // Using ArrayList
+list = new LinkedList<>(); // Switch to LinkedList
+
+```
+
+`ArrayList`: Resizable array, which can be found in the `java.util` package. (Part of `java.uti` package.)
+
+`LinkedList`: The `Linkedlist` class has all of the same methods as the `ArrayList` class b/c **they both implement the `List` interface.** However, while the `ArrayList` class and `LinkedList` class can be used in the same way, they are built very differently. (Part of `java.uti` package.)
+
+```
+addFist()
+addLast()
+removeFirst()
+removeLast()
+getFirst()
+getLast()
+```
+
+Use an `ArrayList` for storing and accessing data, and `LinkedList` to manipulate data.
+
 ### HashMap(HashMapMain.java)
 
 store key/value pairs
