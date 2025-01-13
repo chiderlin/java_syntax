@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 @Entity // annotation maps the class to a database table -> find User table
 public class User {
   @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY);
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;
   private String name;
   private String email;

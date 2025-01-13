@@ -14,7 +14,7 @@ public class UserService {
   private final UserRepository userRepository;
   
   //FIXME:err when running
-  @Antowired
+  @Autowired
   public UserService(UserRepository userRepository){
     this.userRepository = userRepository;
   }
