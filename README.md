@@ -45,6 +45,10 @@ Use `package` keyword
 - Compile MyPackageClass.java: javac mypack/MyPackageClass.java
 - Run MyPackageClass: java mypack.MyPackageClass
 
+### Constructors
+
+=> same as `def __init__()` in python
+
 ### Inheritance(Car.java)
 
 - subclass(child): the class that inherits from another class.
