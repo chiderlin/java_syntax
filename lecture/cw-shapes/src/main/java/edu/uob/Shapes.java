@@ -51,11 +51,19 @@ public class Shapes {
         // create triangle
         shapes[i] = new Triangle(genRandomInt(),genRandomInt(),genRandomInt(), Colour.BLUE);
       }
-      System.out.println(shapes[i].toString());
+//      System.out.println(shapes[i].toString());
       if(shapes[i] instanceof Triangle) triangleCounter++;
     }
     System.out.println("Total number of triangles:  " + triangleCounter);
     System.out.println("(Static) Total number of triangles:  " + (Triangle.getPopulation()-1)); // 一開始創的testTriangle不要算進來
+
+    TwoDimensionalShape firstShape = shapes[0];
+    System.out.println("original type: " + firstShape.toString());
+    if(firstShape instanceof Triangle){ // using instanceof to avoid down-casting error
+      Triangle firstTriangle = (Triangle) firstShape;
+      TriangleVariant variant = (TriangleVariant) firstTriangle.getVariant();
+      System.out.println("assume it's triangle: " + variant.toString());
+    }
 
   }
 }
