@@ -6,6 +6,7 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
   int sideC;
   private TriangleVariant variant;
   int perimeter;
+  static int triangleCounter = 0;
 
 
   public Triangle(int a, int b, int c, Colour colour) {
@@ -15,7 +16,12 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
     super.setColour(colour);
     this.variant = determineVariant();
     this.perimeter = calculatePerimeterLength();
+    Triangle.triangleCounter++;
 
+  }
+
+  public int getPopulation(){
+    return Triangle.triangleCounter;
   }
 
 
