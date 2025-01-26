@@ -5,6 +5,7 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
   int sideB;
   int sideC;
   private TriangleVariant variant;
+  int perimeter;
 
 
   public Triangle(int a, int b, int c, Colour colour) {
@@ -13,6 +14,7 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
     this.sideC = c;
     super.setColour(colour);
     this.variant = determineVariant();
+    this.perimeter = calculatePerimeterLength();
 
   }
 
@@ -66,13 +68,13 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
 
 
 
-  // TODO implement me!
+  @Override
   public double calculateArea() {
-    return 0;
+    return Math.sqrt(perimeter*(perimeter-sideA)*(perimeter-sideB)*(perimeter-sideC));
   }
 
-  // TODO implement me!
+  @Override
   public int calculatePerimeterLength() {
-    return 0;
+    return (sideA+sideB+sideC)/2;
   }
 }
