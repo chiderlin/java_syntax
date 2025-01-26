@@ -55,7 +55,7 @@ public class Shapes {
       if(shapes[i] instanceof Triangle) triangleCounter++;
     }
     System.out.println("Total number of triangles:  " + triangleCounter);
-
+    System.out.println("(Static) Total number of triangles:  " + (Triangle.getPopulation()-1)); // 一開始創的testTriangle不要算進來
 
   }
 }

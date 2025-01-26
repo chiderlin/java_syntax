@@ -20,7 +20,7 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
 
   }
 
-  public int getPopulation(){
+  static public int getPopulation(){
     return Triangle.triangleCounter;
   }
 
