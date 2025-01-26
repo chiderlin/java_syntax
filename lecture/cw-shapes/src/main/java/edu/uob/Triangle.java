@@ -1,6 +1,6 @@
 package edu.uob;
 
-public class Triangle extends TwoDimensionalShape{
+public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
   int sideA;
   int sideB;
   int sideC;
@@ -25,6 +25,12 @@ public class Triangle extends TwoDimensionalShape{
     return "This is a " + super.getColour() +" Triangle with sides of length " + sideA + ", " + sideB + ", " + sideC;
   }
 
+
+  @Override
+  public TriangleVariant getVariant() {
+    return this.variant;
+  }
+  
 
   private TriangleVariant determineVariant() {
     if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
@@ -58,9 +64,6 @@ public class Triangle extends TwoDimensionalShape{
     return aSquared + bSquared == cSquared;
   }
 
-  public TriangleVariant getVariant() {
-    return this.variant;
-  }
 
 
   // TODO implement me!
