@@ -16,11 +16,8 @@ public class OXOController implements Serializable {
 
         String formatCommand = command.toLowerCase();
         // separate a&1
-        char rowName = formatCommand.charAt(0);
-//        System.out.println(rowName);
-
+        int rowNum = formatCommand.charAt(0) - 97;
         int colNum = formatCommand.charAt(1) - '0' - 1; // -1 to index
-//        System.out.println(colNum);
 
         // render what player input on the right position
         int currentPlayerNumber = gameModel.getCurrentPlayerNumber();
@@ -29,14 +26,7 @@ public class OXOController implements Serializable {
 
         // if condition to decide where to draw in the 2D array list -> set cell owner
         // draw? -> after setting cellOwner, it will draw automatically!!
-        // TODO: optimize row detect automatically instead of if condition
-        if(rowName == 'a'){
-            gameModel.setCellOwner(0, colNum, currentPlayer);
-        } else if(rowName == 'b'){
-            gameModel.setCellOwner(1, colNum, currentPlayer);
-        } else if(rowName == 'c'){
-            gameModel.setCellOwner(2, colNum, currentPlayer);
-        }
+        gameModel.setCellOwner(rowNum, colNum, currentPlayer);
 
         // change player
         if(currentPlayerNumber == 0) gameModel.setCurrentPlayerNumber(1);
