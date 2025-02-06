@@ -17,6 +17,9 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+
+
+// NOTE:final: prevent inheritance
 public final class OXOGame extends Frame implements WindowListener, ActionListener, MouseListener, KeyListener {
     @Serial private static final long serialVersionUID = 1;
     private static Font FONT = new Font("SansSerif", Font.PLAIN, 14);
@@ -53,6 +56,7 @@ public final class OXOGame extends Frame implements WindowListener, ActionListen
         this.setSize(width, height);
         this.setVisible(true);
         this.addWindowListener(this);
+
     }
 
     public Insets getInsets() {

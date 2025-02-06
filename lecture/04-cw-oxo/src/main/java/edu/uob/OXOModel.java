@@ -1,7 +1,9 @@
+// NOTE: Basic Game setting  (core data structures)
 package edu.uob;
 
 import java.io.Serial;
 import java.io.Serializable;
+
 
 public class OXOModel implements Serializable {
     @Serial private static final long serialVersionUID = 1;

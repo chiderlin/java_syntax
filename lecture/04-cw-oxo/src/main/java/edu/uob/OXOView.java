@@ -1,3 +1,5 @@
+// Note: render 
+
 package edu.uob;
 
 import java.awt.Color;
