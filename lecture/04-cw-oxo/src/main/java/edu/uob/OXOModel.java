@@ -19,7 +19,6 @@ public class OXOModel implements Serializable {
     public OXOModel(int numberOfRows, int numberOfColumns, int winThresh) {
         winThreshold = winThresh;
 //        cells = new OXOPlayer[numberOfRows][numberOfColumns];
-        //FIXME: not sure yet.. testing
         for(int i=0; i< numberOfRows; i++){
             ArrayList<OXOPlayer> row = new ArrayList<>();
             for(int j=0; j< numberOfColumns; j++){
