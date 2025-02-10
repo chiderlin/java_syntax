@@ -33,10 +33,18 @@ public class OXOController implements Serializable {
         else gameModel.setCurrentPlayerNumber(0);
 
     }
-    public void addRow() {}
-    public void removeRow() {}
-    public void addColumn() {}
-    public void removeColumn() {}
+    public void addRow() {
+        gameModel.addRow();
+    }
+    public void removeRow() {
+        gameModel.removeRow();
+    }
+    public void addColumn() {
+        gameModel.addColumn();
+    }
+    public void removeColumn() {
+        gameModel.removeColumn();
+    }
     public void increaseWinThreshold() {}
     public void decreaseWinThreshold() {}
     public void reset() {
