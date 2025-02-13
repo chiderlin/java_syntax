@@ -17,7 +17,6 @@ public class Triangle extends TwoDimensionalShape implements MultiVariantShape{
     this.variant = determineVariant();
     this.perimeter = calculatePerimeterLength();
     Triangle.triangleCounter++;
-
   }
 
   static public int getPopulation(){

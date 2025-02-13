@@ -5,6 +5,7 @@ abstract class AbstractRobot {
 	AbstractRobot(){
 		this("Ava", 100);
 	}
+	
 	AbstractRobot(String name, int powerLevel){
 		this.name = name;
 		this.powerLevel = powerLevel;

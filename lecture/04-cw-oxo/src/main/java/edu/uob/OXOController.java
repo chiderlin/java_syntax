@@ -3,6 +3,7 @@ package edu.uob;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.InputMismatchException;
 
 public class OXOController implements Serializable {
     @Serial private static final long serialVersionUID = 1;
@@ -14,9 +15,13 @@ public class OXOController implements Serializable {
 
     public void handleIncomingCommand(String command) throws OXOMoveException {
         String formatCommand = command.toLowerCase();
+        if(command.length() != 2) throw new InputMismatchException("The entire identifier string is longer(or shorter) than the required two characters");
+        if(formatCommand.charAt(0)>122 || formatCommand.charAt(0) < 97)  throw new InputMismatchException("The row character is not alphabetical");
+        if(formatCommand.charAt(1)>57 || formatCommand.charAt(1) < 48) throw new InputMismatchException("The column character is not numerical");
         // separate a&1
         int rowNum = formatCommand.charAt(0) - 97;
         int colNum = formatCommand.charAt(1) - '0' - 1; // -1 to index
+        if(rowNum > gameModel.getNumberOfRows() || colNum > gameModel.getNumberOfColumns()) throw new InputMismatchException("Outside the range of the board size");
 
         // render what player input on the right position
         int currentPlayerNumber = gameModel.getCurrentPlayerNumber();
@@ -56,6 +61,7 @@ public class OXOController implements Serializable {
     public void increaseWinThreshold() {
         gameModel.setWinThreshold(gameModel.getWinThreshold() + 1);
     }
+
     public void decreaseWinThreshold() {
         gameModel.setWinThreshold(gameModel.getWinThreshold() - 1);
     }
