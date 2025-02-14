@@ -68,4 +68,44 @@ class ExampleControllerTests {
     // The next lins is a bit ugly, but it is the easiest way to test exceptions (soz)
     assertThrows(InvalidIdentifierLengthException.class, ()-> sendCommandToController("abc123"), failedTestComment);
   }
+
+  @Test
+  void testRowInvalidIdentifierCharacterException() throws OXOMoveException{
+    String failedTestComment = "Controller failed to throw an InvalidIdentifierCharacterException for command `%1`";
+    assertThrows(InvalidIdentifierCharacterException.class, ()-> sendCommandToController("%1"), failedTestComment);
+  }
+
+  @Test
+  void testColInvalidIdentifierCharacterException() throws OXOMoveException{
+    String failedTestComment = "Controller failed to throw an InvalidIdentifierCharacterException for command `HH`";
+    assertThrows(InvalidIdentifierCharacterException.class, ()-> sendCommandToController("HH"), failedTestComment);
+  }
+
+  @Test
+  void testRowOutofBoundException() throws OXOMoveException {
+    String failedTestComment = "Controller failed to throw an OutOfBoundsException for command `D2`";
+    assertThrows(OutsideCellRangeException.class, ()-> sendCommandToController("D2"), failedTestComment);
+
+    String failedTestComment2 = "Controller failed to throw an OutOfBoundsException for command `F2`";
+    assertThrows(OutsideCellRangeException.class, ()-> sendCommandToController("F2"), failedTestComment2);
+  }
+
+  @Test
+  void testColOutofBoundException() throws OXOMoveException {
+      String failedTestComment = "Controller failed to throw an OutOfBoundsException for command `A6`";
+      assertThrows(OutsideCellRangeException.class, ()-> sendCommandToController("A6"), failedTestComment);
+
+      String failedTestComment2 = "Controller failed to throw an OutOfBoundsException for command `B4`";
+      assertThrows(OutsideCellRangeException.class, ()-> sendCommandToController("B4"), failedTestComment2);
+  }
+
+  @Test
+  void testCellAlreadyTakenException() throws OXOMoveException {
+    String failedTestComment = "Controller failed to throw an testCellAlreadyTakenException for command `A1`";
+    assertThrows(OXOMoveException.class, ()-> {
+      sendCommandToController("A1");
+      sendCommandToController("A1");
+    }, failedTestComment);
+  }
+
 }

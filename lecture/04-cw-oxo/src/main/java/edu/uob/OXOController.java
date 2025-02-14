@@ -15,13 +15,16 @@ public class OXOController implements Serializable {
 
     public void handleIncomingCommand(String command) throws OXOMoveException {
         String formatCommand = command.toLowerCase();
-        if(command.length() != 2) throw new InputMismatchException("The entire identifier string is longer(or shorter) than the required two characters");
-        if(formatCommand.charAt(0)>122 || formatCommand.charAt(0) < 97)  throw new InputMismatchException("The row character is not alphabetical");
-        if(formatCommand.charAt(1)>57 || formatCommand.charAt(1) < 48) throw new InputMismatchException("The column character is not numerical");
+        if(command.length() != 2) throw new OXOMoveException.InvalidIdentifierLengthException(command.length());
+        if(formatCommand.charAt(0)>122 || formatCommand.charAt(0) < 97)  throw new OXOMoveException.InvalidIdentifierCharacterException(OXOMoveException.RowOrColumn.ROW, formatCommand.charAt(0));
+        if(formatCommand.charAt(1)>57 || formatCommand.charAt(1) < 48) throw new OXOMoveException.InvalidIdentifierCharacterException(OXOMoveException.RowOrColumn.COLUMN, formatCommand.charAt(1));
+
+
         // separate a&1
         int rowNum = formatCommand.charAt(0) - 97;
         int colNum = formatCommand.charAt(1) - '0' - 1; // -1 to index
-        if(rowNum > gameModel.getNumberOfRows() || colNum > gameModel.getNumberOfColumns()) throw new InputMismatchException("Outside the range of the board size");
+        if(rowNum >= gameModel.getNumberOfRows()) throw new OXOMoveException.OutsideCellRangeException(OXOMoveException.RowOrColumn.ROW, rowNum);
+        if(colNum >= gameModel.getNumberOfColumns()) throw new OXOMoveException.OutsideCellRangeException(OXOMoveException.RowOrColumn.COLUMN, colNum);
 
         // render what player input on the right position
         int currentPlayerNumber = gameModel.getCurrentPlayerNumber();
@@ -30,6 +33,7 @@ public class OXOController implements Serializable {
 
         // if condition to decide where to draw in the 2D array list -> set cell owner
         // draw? -> after setting cellOwner, it will draw automatically!!
+        if(gameModel.getCellOwner(rowNum, colNum) != null) throw new OXOMoveException.CellAlreadyTakenException(rowNum, colNum);
         gameModel.setCellOwner(rowNum, colNum, currentPlayer);
 
         // change player

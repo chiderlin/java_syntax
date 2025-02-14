@@ -42,4 +42,5 @@ public class OXOMoveException extends Exception {
             super("Cell [" + row + "," + column + "] has already been claimed");
         }
     }
+
 }
